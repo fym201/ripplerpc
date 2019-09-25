@@ -2,7 +2,7 @@ package ripplerpc
 
 import (
 	"encoding/json"
-	"github.com/GoChainRpc/ripplerpc/xrpjson"
+	"github.com/fym201/ripplerpc/xrpjson"
 )
 
 // FutureGetAccountTxResult is a future promise to deliver the result
@@ -31,16 +31,16 @@ func (r FutureGetAccountTxResult) Receive() (*xrpjson.GetAccountTxResult, error)
 // the returned instance.
 //
 // See GetTransaction for the blocking version and more details.
-func (c *Client) GetAccountTxAsync(account string, ledger_index int64) FutureGetAccountTxResult {
-	cmd := xrpjson.NewGetAccountTxCmd(account, ledger_index)
+func (c *Client) GetAccountTxAsync(account string, min_ledger, max_ledger int64, forward bool) FutureGetAccountTxResult {
+	cmd := xrpjson.NewGetAccountTxCmd(account, min_ledger, max_ledger, forward)
 	return c.sendCmd(cmd)
 }
 
 // GetTransfers returns detailed information about a wallet transaction.
 //
 // See GetTransfers to return the raw transaction instead.
-func (c *Client) GetAccountTx(account string, ledger_index int64) (*xrpjson.GetAccountTxResult, error) {
-	return c.GetAccountTxAsync(account, ledger_index).Receive()
+func (c *Client) GetAccountTx(account string, min_ledger, max_ledger int64, forward bool) (*xrpjson.GetAccountTxResult, error) {
+	return c.GetAccountTxAsync(account, min_ledger, max_ledger, forward).Receive()
 }
 
 type FutureSubmitResult chan *response

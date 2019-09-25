@@ -33,13 +33,13 @@ type GetAccountTxCmd struct {
 //
 // The parameters which are pointers indicate they are optional.  Passing nil
 // for optional parameters will use the default value.
-func NewGetAccountTxCmd(account string, ledger_index int64) *GetAccountTxCmd {
+func NewGetAccountTxCmd(account string, min_ledger, max_ledger int64, forward bool) *GetAccountTxCmd {
 	return &GetAccountTxCmd{
 		Account:        account,
 		Binary:         false,
-		Forward:        false,
-		LedgerIndexMax: ledger_index,
-		LedgerIndexMin: ledger_index,
+		Forward:        forward,
+		LedgerIndexMax: max_ledger,
+		LedgerIndexMin: min_ledger,
 	}
 }
 

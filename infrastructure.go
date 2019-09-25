@@ -23,7 +23,7 @@ import (
 	// "github.com/btcsuite/btcd/btcjson"
 	// "github.com/btcsuite/go-socks/socks"
 	// "github.com/btcsuite/websocket"
-	"github.com/GoChainRpc/ripplerpc/xrpjson"
+	"github.com/fym201/ripplerpc/xrpjson"
 )
 
 var (

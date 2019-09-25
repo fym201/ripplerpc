@@ -13,7 +13,7 @@ type GetAccountInfoResult struct {
 		Index             string `json:"index"`
 	} `json:"account_data"`
 	LedgerCurrentIndex int64 `json:"ledger_current_index"`
-	QueueData struct {
+	QueueData          struct {
 		TxnCount int `json:"txn_count"`
 	} `json:"queue_data"`
 	Status    string `json:"status"`
@@ -26,7 +26,7 @@ type SubmitResult struct {
 	EngineResultMessage string `json:"engine_result_message"`
 	Status              string `json:"status"`
 	TxBlob              string `json:"tx_blob"`
-	TxJSON struct {
+	TxJSON              struct {
 		Account         string `json:"Account"`
 		Amount          string `json:"Amount"`
 		Destination     string `json:"Destination"`
@@ -56,20 +56,20 @@ type GetTxResult struct {
 	Hash            string `json:"hash"`
 	InLedger        int64  `json:"inLedger"`
 	LedgerIndex     int64  `json:"ledger_index"`
-	Meta struct {
+	Meta            struct {
 		AffectedNodes []struct {
 			ModifiedNode struct {
 				FinalFields struct {
-					Account    string `json:"Account"`
-					Balance    string `json:"Balance"`
-					Flags      int    `json:"Flags"`
-					OwnerCount int    `json:"OwnerCount"`
-					Sequence   int    `json:"Sequence"`
+					Account    string      `json:"Account"`
+					Balance    interface{} `json:"Balance"`
+					Flags      int         `json:"Flags"`
+					OwnerCount int         `json:"OwnerCount"`
+					Sequence   int         `json:"Sequence"`
 				} `json:"FinalFields"`
 				LedgerEntryType string `json:"LedgerEntryType"`
 				LedgerIndex     string `json:"LedgerIndex"`
-				PreviousFields struct {
-					Balance string `json:"Balance"`
+				PreviousFields  struct {
+					Balance interface{} `json:"Balance"`
 				} `json:"PreviousFields"`
 				PreviousTxnID     string `json:"PreviousTxnID"`
 				PreviousTxnLgrSeq int64  `json:"PreviousTxnLgrSeq"`
@@ -85,27 +85,27 @@ type GetTxResult struct {
 
 type GetAccountTxResult struct {
 	Account        string `json:"account"`
-	LedgerIndexMax int64    `json:"ledger_index_max"`
-	LedgerIndexMin int64    `json:"ledger_index_min"`
+	LedgerIndexMax int64  `json:"ledger_index_max"`
+	LedgerIndexMin int64  `json:"ledger_index_min"`
 	Status         string `json:"status"`
-	Transactions []struct {
+	Transactions   []struct {
 		Meta struct {
 			AffectedNodes []struct {
 				ModifiedNode struct {
 					FinalFields struct {
-						Account    string `json:"Account"`
-						Balance    string `json:"Balance"`
-						Flags      int    `json:"Flags"`
-						OwnerCount int    `json:"OwnerCount"`
-						Sequence   int    `json:"Sequence"`
+						Account    string      `json:"Account"`
+						Balance    interface{} `json:"Balance"`
+						Flags      int         `json:"Flags"`
+						OwnerCount int         `json:"OwnerCount"`
+						Sequence   int         `json:"Sequence"`
 					} `json:"FinalFields"`
 					LedgerEntryType string `json:"LedgerEntryType"`
 					LedgerIndex     string `json:"LedgerIndex"`
-					PreviousFields struct {
-						Balance string `json:"Balance"`
+					PreviousFields  struct {
+						Balance interface{} `json:"Balance"`
 					} `json:"PreviousFields"`
 					PreviousTxnID     string `json:"PreviousTxnID"`
-					PreviousTxnLgrSeq int64    `json:"PreviousTxnLgrSeq"`
+					PreviousTxnLgrSeq int64  `json:"PreviousTxnLgrSeq"`
 				} `json:"ModifiedNode"`
 			} `json:"AffectedNodes"`
 			TransactionIndex  int    `json:"TransactionIndex"`
@@ -125,7 +125,7 @@ type GetAccountTxResult struct {
 			TxnSignature    string `json:"TxnSignature"`
 			Date            int64  `json:"date"`
 			Hash            string `json:"hash"`
-			InLedger        int64    `json:"inLedger"`
+			InLedger        int64  `json:"inLedger"`
 			LedgerIndex     int64  `json:"ledger_index"`
 		} `json:"tx"`
 		Validated bool `json:"validated"`

@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"github.com/GoChainRpc/ripplerpc"
+	"github.com/fym201/ripplerpc"
 )
 
 func main() {
